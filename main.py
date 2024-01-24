@@ -29,9 +29,7 @@ mistral = LlamaCPP(
     verbose=True,
 )
 
-embed_model = LangchainEmbedding(
-  HuggingFaceEmbeddings(model_name="thenlper/gte-large"),
-)
+embed_model = LangchainEmbedding(HuggingFaceEmbeddings(model_name="thenlper/gte-large"), embed_batch_size=4)
 
 service_context = ServiceContext.from_defaults(
     chunk_size=256,
